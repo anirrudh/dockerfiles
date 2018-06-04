@@ -1,0 +1,25 @@
+# Base centOS install with languages
+#
+# Get latest centOS image
+FROM centos:latest
+LABEL author="Anirrudh Krishnan"
+LABEL maintainer="akrishnan@anirrudhkrishnan.com"
+
+# Basic UNIX packages for centOS
+RUN yum -y update && \
+    yum -y upgrade && \
+    yum -y install yum-utils && \
+    yum -y groupinstall development && \
+    yum -y install man-pages man-db man && \
+    yum -y install epel-release && \
+    yum -y install https://centos7.iuscommunity.org/ius-release.rpm && \
+    yum -y install vim git wget curl 
+
+# Install of commontly used programming languages
+
+# Python installation for centOS. Interactive Shell Command = #python3.6
+RUN yum -y install python36u && \
+    yum -y install python36u-devel 
+
+# Java install centOS
+RUN yum -y install java-1.8.0-openjdk-devel

@@ -2,7 +2,7 @@
 #
 # Get Latest Stable Ubuntu release
 FROM ubuntu:latest
-LABEL  author="Anirrudh Krishnan"
+LABEL author="Anirrudh Krishnan"
 LABEL maintainer="akrishnan@anirrudhkrishnan.com"
 
 # Neccesary for the UNIX system. 
