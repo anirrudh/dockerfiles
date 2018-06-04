@@ -21,13 +21,13 @@ of the file on docker. You can create *many* containers from many images.
 (Future usage): Inseretion of script to check for image sizes. 
 
 #### Image initalization. 
-'''bash 
+'''console
 docker image build -f /path/to/dockerfile .
 '''
 
 After the image initializes, you need to look at the images that have been built to obtain the
 image id. Use command
-'''bash
+'''console
 docker images
 '''
 to see the running images. Get the image ID of the image that you want to build. This will allow the
@@ -35,7 +35,7 @@ container to be done.
 
 #### Containerization
 To now spin up a container based on that image, we can simply use the following command: 
-'''bash
+'''console
 docker run -i -t *insert_image_id* 
 '''
 
