@@ -11,7 +11,7 @@ The file structure has 2 folders: OS and Languages.
 The OS folder will contain OS templates as well as images catered to specific disciplines. These will
 be based on both the Ubuntu and CentOS images. 
 
-The Lamgugages folder will contain base images created specifically for development in that specific
+The Langugages folder will contain base images created specifically for development in that specific
 language, with additional useful tools installed. 
 
 ### Running the Images, and creating Containers.
@@ -20,22 +20,22 @@ of the file on docker. You can create *many* containers from many images.
 
 (Future usage): Inseretion of script to check for image sizes. 
 
-##### Image initalization. 
-'''sh 
+#### Image initalization. 
+'''bash 
 docker image build -f /path/to/dockerfile .
 '''
 
 After the image initializes, you need to look at the images that have been built to obtain the
 image id. Use command
-'''sh
+'''bash
 docker images
 '''
 to see the running images. Get the image ID of the image that you want to build. This will allow the
 container to be done. 
 
-##### Containerization
+#### Containerization
 To now spin up a container based on that image, we can simply use the following command: 
-'''sh
+'''bash
 docker run -i -t *insert_image_id* 
 '''
 
