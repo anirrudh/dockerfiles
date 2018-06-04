@@ -1,0 +1,42 @@
+# Base Ubuntu Installation Docker Image 
+#
+# Get Latest Stable Ubuntu release
+FROM ubuntu:latest
+LABEL  author="Anirrudh Krishnan"
+LABEL maintainer="akrishnan@anirrudhkrishnan.com"
+
+# Neccesary for the UNIX system. 
+# Add on anything 
+RUN \ 
+apt-get -y update && \
+apt-get -y upgrade && \
+apt-get install -y build-essential && \
+apt-get install -y software-properties-common && \
+apt-get install -y vim htop curl git wget
+
+# Languages that need to be installed. 
+# If not needed, feel free to get rid of the language by commenting out.
+# NOTE: the build-essential command already installs gcc and g++, so 
+# C and C++ should be able to compile without any of the code above. 
+
+# Python
+# NOTE: As of Ubuntu 18.10, Python 3 is the standard compiler. Therefore, 
+# only an installation of pip is needed to install packages. 
+
+# Pip Installation
+RUN apt-get install -y python3-pip 
+
+## Python 2 installation
+### Uncommemt line below for install
+#RUN apt-get install -y python-minimal
+
+# Java Installtion, borrowed from @krizsan, thank you! 
+RUN apt-get install -y  software-properties-common && \
+    add-apt-repository ppa:webupd8team/java -y && \
+    apt-get update && \
+    echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
+    apt-get install -y oracle-java8-installer && \
+    apt-get clean
+
+# Typically, this is a base install for me based on the work I do for 
+# minimalism. Have fun hacking! 
