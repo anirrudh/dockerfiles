@@ -1,0 +1,26 @@
+# This dockerfile will host Node.JS amd spin up the application for 
+# localized running on port 80
+# Originally from docs found at: https://hub.docker.com/_/node/
+
+# Specify node version
+FROM node:alpine
+LABEL author="anirrudh"
+LABEL maintainer="akrishnan@anirrudhkrishnan.com"
+
+# Install some packages for Alpine Linux Slim image is there
+RUN apk add --update \
+    git \ 
+    bash \
+    wget \
+    curl
+
+# Set working directory 
+WORKDIR /app
+
+# Get the Directory from the host computer
+ONBUILD COPY . /app
+ONBUILD RUN npm install
+
+# Port 8080
+EXPOSE 8080
+CMD [ "npm", "start" ]
